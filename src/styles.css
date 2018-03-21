@@ -1,0 +1,15 @@
+body {
+  font-family: 'Aldrich', sans-serif;
+}
+
+#title {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#bike-finder {
+  font-size: 80px;
+
+}
