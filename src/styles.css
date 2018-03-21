@@ -1,5 +1,5 @@
 body {
-  font-family: 'Aldrich', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #title {
@@ -11,5 +11,8 @@ body {
 
 #bike-finder {
   font-size: 80px;
+}
 
+#search {
+  display: none;
 }

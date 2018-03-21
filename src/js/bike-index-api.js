@@ -10,6 +10,7 @@ export function getBikes(location, name) {
         let bikeTitle = response.bikes[i].title;
         let bikeSerial = response.bikes[i].serial;
         $('.stolen-bikes').append(" " + '<li>' + bikeTitle +', ' + '<em>'+ bikeSerial + '</em>' + '</li>');
+
       }
     }
     }).fail(function(error) {

@@ -3,7 +3,7 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Aldrich|Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich|Roboto" rel="stylesheet">
     <meta charset="utf-8">
     <title>Bike Index</title>
   </head>
@@ -22,9 +22,16 @@
         <button type="submit" class="btn btn-info">Submit</button>
       </form>
 
+      <div class="row" id="search">
+        <button type="submit" class="btn btn-info" id="manufacturer">Search by Manufacturer</button>
+        <button type="submit" class="btn btn-info" id="color">Search by Color</button>
+        <button type="submit" class="btn btn-info" id="date-stolen">Search by Date Stolen</button>
+      </div>
+
       <div class="show-text"></div>
       <div class="stolen-bikes"></div>
       <div class="api-error"></div>
+      <div class="bike-manufacturer"></div>
     </div>
   </body>
 </html>
