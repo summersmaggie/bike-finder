@@ -1,5 +1,14 @@
 import { Cyclist } from './js/cyclist.js';
 import { getBikes } from './js/bike-index-api.js';
-import $ from 'jquery';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css' ;
+
+$(document).ready(function() {
+  $('#cyclist-form').submit(function(event) {
+    event.preventDefault();
+    const name = $("#name").val();
+    const location = $("#location").val();
+    $("#cyclist-form").hide();
+
+    getBikes(location);
+  });
+});
