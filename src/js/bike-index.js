@@ -48,4 +48,17 @@ export class bikeAPI {
         $('.api-error').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
       });
     }
+
+  getYear(location) {
+    const bikeKey = process.env.BIKE_INDEX_API_KEY;
+
+    $.get(`https://bikeindex.org:443/api/v3/search?page=1&per_page=25&location=${location}&distance=10&stolenness=stolen&api_key=${bikeKey}&stolenness=proximity`).then(function(response) {
+          for(let i = 0; i < response.bikes.length; i++) {
+          let year = response.bikes[i].year;
+          $('.year').append(" " + '<li>' + year + '</li>');
+        }
+      }).fail(function(error) {
+        $('.api-error').text(`There was an error processing your request: ${error.responseText}. Please try again.`);
+      });
+    }
 }

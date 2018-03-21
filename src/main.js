@@ -25,6 +25,14 @@ $(document).ready(function() {
       $(".bike-manufacturer").hide();
       myBikeAPI.getColor(location);
     });
+
+    $("#year").click(function() {
+      $(".stolen-bikes").hide();
+      $(".show-text").hide();
+      $(".bike-manufacturer").hide();
+      $(".bike-color").hide();
+      myBikeAPI.getYear(location);
+    });
   });
 });
 
