@@ -9,6 +9,6 @@ $(document).ready(function() {
     const location = $("#location").val();
     $("#cyclist-form").hide();
 
-    getBikes(location);
+    getBikes(location, name);
   });
 });
