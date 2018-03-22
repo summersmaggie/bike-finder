@@ -1,8 +1,10 @@
 import { bikeAPI } from './js/bike-index.js';
 import './styles.css' ;
 
-const displayBikes = function(title, serial) {
-  $('.stolen-bikes').append(`<li>${title} ${serial}</li>`);
+const displayBikes = function(response) {
+  response.forEach(function(response) {
+  $('.stolen-bikes').append('<li>' + response.bikes.title + response.bikes.serial + '</li>');
+});
 }
 
 // const displayManufacturer = function(title, serial) {
@@ -18,6 +20,9 @@ const displayBikes = function(title, serial) {
 // }
 
 $(document).ready(function() {
+
+  let newBikeAPI = new bikeAPI(name, location);
+
   $('#cyclist-form').submit(function(event) {
     event.preventDefault();
 
@@ -25,29 +30,30 @@ $(document).ready(function() {
     const location = $("#location").val();
     $("#cyclist-form").hide();
 
-    let myBikeAPI = new bikeAPI(name, location, displayBikes);
-    myBikeAPI.getBikes(name, location, displayBikes);
+    newBikeAPI.getBikes(name, location, displayBikes);
+
+
     $("#search").show();
 
-    $("#manufacturer").click(function() {
-      $(".stolen-bikes").hide();
-      $(".show-text").hide();
-      myBikeAPI.getManufacturer(location);
-    });
-
-    $("#color").click(function() {
-      $(".stolen-bikes").hide();
-      $(".show-text").hide();
-      $(".bike-manufacturer").hide();
-      myBikeAPI.getColor(location);
-    });
-
-    $("#year").click(function() {
-      $(".stolen-bikes").hide();
-      $(".show-text").hide();
-      $(".bike-manufacturer").hide();
-      $(".bike-color").hide();
-      myBikeAPI.getYear(location);
-    });
+    // $("#manufacturer").click(function() {
+    //   $(".stolen-bikes").hide();
+    //   $(".show-text").hide();
+    //   myBikeAPI.getManufacturer(location);
+    // });
+    //
+    // $("#color").click(function() {
+    //   $(".stolen-bikes").hide();
+    //   $(".show-text").hide();
+    //   $(".bike-manufacturer").hide();
+    //   myBikeAPI.getColor(location);
+    // });
+    //
+    // $("#year").click(function() {
+    //   $(".stolen-bikes").hide();
+    //   $(".show-text").hide();
+    //   $(".bike-manufacturer").hide();
+    //   $(".bike-color").hide();
+    //   myBikeAPI.getYear(location);
+    // });
   });
 });
