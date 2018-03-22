@@ -8,21 +8,13 @@ const displayBikes = function(response) {
     } else {
       for(let i = 0; i < response.bikes.length; i++) {
       let stolenBikes = response.bikes[i].title;
-      $('.stolen-bikes').append(" " + '<li>' + stolenBikes + '</li>');
+      let bikeManufacturer = response.bikes[i].manufacturer_name;
+      let bikeColor = response.bikes[i].frame_colors;
+      let bikeYear = response.bikes[i].year;
+      $('.stolen-bikes').append(" " + '<li>' + stolenBikes +  ', ' + bikeManufacturer + ', ' + bikeColor + ', ' + bikeYear + '</li>');
     }
   }
 }
-// const displayManufacturer = function(title, serial) {
-//   $('#greatDisplay').append(`<div>${title}${serial}</div>`);
-// }
-//
-// const displayColor = function(title, serial) {
-//   $('#greatDisplay').append(`<div>${title}${serial}</div>`);
-// }
-//
-// const displayYear = function(title, serial) {
-//   $('#greatDisplay').append(`<div>${title}${serial}</div>`);
-// }
 
 $(document).ready(function() {
 
@@ -37,13 +29,14 @@ $(document).ready(function() {
 
     newBikeAPI.getBikes(name, location, displayBikes);
 
-
     $("#search").show();
 
     // $("#manufacturer").click(function() {
     //   $(".stolen-bikes").hide();
     //   $(".show-text").hide();
-    //   myBikeAPI.getManufacturer(location);
+    //   newBikeAPI.getBikes(name, location, displayBikes);
+    //
+    //   console.log(bikeManufacturer);
     // });
     //
     // $("#color").click(function() {
