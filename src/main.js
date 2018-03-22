@@ -2,11 +2,16 @@ import { bikeAPI } from './js/bike-index.js';
 import './styles.css' ;
 
 const displayBikes = function(response) {
-  response.forEach(function(response) {
-  $('.stolen-bikes').append('<li>' + response.bikes.title + response.bikes.serial + '</li>');
-});
+    if (response.bikes.length == 0) {
+      console.log(response.bikes.length);
+      $('.stolen-bikes').text("There are no stolen bikes in your area!");
+    } else {
+      for(let i = 0; i < response.bikes.length; i++) {
+      let stolenBikes = response.bikes[i].title;
+      $('.stolen-bikes').append(" " + '<li>' + stolenBikes + '</li>');
+    }
+  }
 }
-
 // const displayManufacturer = function(title, serial) {
 //   $('#greatDisplay').append(`<div>${title}${serial}</div>`);
 // }
